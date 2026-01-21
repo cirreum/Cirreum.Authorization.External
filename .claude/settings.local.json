@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir /s \"C:\\\\Cirreum\\\\Infrastructure\\\\Cirreum.Authorization.SignedRequest\")",
+      "Bash(dir \"C:\\\\Cirreum\\\\Infrastructure\\\\Cirreum.Authorization.Entra\")",
+      "Bash(dir /s \"C:\\\\Cirreum\\\\Infrastructure\\\\Cirreum.Authorization.Entra\\\\src\")",
+      "Bash(powershell:*)",
+      "Bash(grep:*)",
+      "Bash(dotnet build:*)",
+      "Bash(dotnet restore:*)",
+      "Bash(dir:*)"
+    ]
+  }
+}

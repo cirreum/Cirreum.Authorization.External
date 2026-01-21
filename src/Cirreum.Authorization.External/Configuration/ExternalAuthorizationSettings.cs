@@ -1,0 +1,6 @@
+﻿namespace Cirreum.Authorization.Configuration;
+
+using Cirreum.AuthorizationProvider.Configuration;
+
+public class ExternalAuthorizationSettings
+	: AuthorizationProviderSettings<ExternalAuthorizationInstanceSettings>;
