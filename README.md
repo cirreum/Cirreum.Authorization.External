@@ -124,19 +124,23 @@ public class DatabaseTenantResolver : IExternalTenantResolver {
 ### 2. Register External (BYOID) in Program.cs
 
 ```csharp
-builder
-    .AddAuthorization()
-    .AddExternalAuth<DatabaseTenantResolver>(options => {
-        // Optional: override appsettings values
-        options.TenantIdentifierSource = TenantIdentifierSource.Header;
-        options.TenantHeaderName = "X-Tenant-Slug";
-    });
+builder.AddAuthorization(auth => auth
+    .AddExternal<DatabaseTenantResolver>(options => options
+        .ConfigureOptions(o => {
+            // Optional: override appsettings values
+            o.TenantIdentifierSource = TenantIdentifierSource.Header;
+            o.TenantHeaderName = "X-Tenant-Slug";
+        }))
+);
 ```
 
 ### 3. Create Policies for BYOID Endpoints
 
 ```csharp
-builder.AddPolicy("TenantAccess", policy => {
+builder.AddAuthorization(auth => auth
+    .AddExternal<DatabaseTenantResolver>()
+)
+.AddPolicy("TenantAccess", policy => {
     policy
         .AddAuthenticationSchemes(ExternalDefaults.AuthenticationScheme)
         .RequireAuthenticatedUser()
