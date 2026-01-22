@@ -9,7 +9,7 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Identity.Web" Version="4.3.0" />
 		<PackageReference Include="Cirreum.AuthorizationProvider" Version="1.0.15" />
-		<PackageReference Include="Cirreum.Core" Version="1.0.37" />
+		<PackageReference Include="Cirreum.Core" Version="1.0.38" />
 	</ItemGroup>
 
 	<ItemGroup>
